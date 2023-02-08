@@ -1,0 +1,14 @@
+{
+  "LangList": [
+    {
+      "LangID": "English",
+      "LangName": "English (From Json File)",
+      "LangFilePath": "English.json"
+    },
+    {
+      "LangID": "PT-BR",
+      "LangName": "Português Brasileiro",
+      "LangFilePath": "ptbr.json"
+    }
+  ]
+}
