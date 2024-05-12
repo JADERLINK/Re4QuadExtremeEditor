@@ -104,7 +104,7 @@ namespace Re4QuadExtremeEditor.src.Forms
             this.textBoxDonate.ReadOnly = true;
             this.textBoxDonate.Size = new System.Drawing.Size(475, 14);
             this.textBoxDonate.TabIndex = 16;
-            this.textBoxDonate.Text = "To Donate to JaderLink (PayPal) Contact: jaderlinkproject@gmail.com";
+            this.textBoxDonate.Text = "To Donate to JaderLink, Contact: jaderlinkproject@gmail.com";
             // 
             // linkLabelProjectGitHub
             // 

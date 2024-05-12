@@ -64,7 +64,7 @@ namespace Re4QuadExtremeEditor.src
         public static ExtraNodeGroup NodeEXTRAS;
 
         // lista de objetos selecionados na treeview
-        public static List<TreeNode> SelectedNodes;
+        public static Dictionary<int, TreeNode> SelectedNodes;
         // o ultimo node/objeto selecionado
         public static TreeNode LastSelectNode = null;
 

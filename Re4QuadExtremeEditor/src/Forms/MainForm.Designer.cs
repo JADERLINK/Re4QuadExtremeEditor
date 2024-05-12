@@ -128,6 +128,7 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemSelectRoom = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.treeViewObjs = new NsMultiselectTreeView.MultiselectTreeView();
             this.propertyGridObjs = new System.Windows.Forms.PropertyGrid();
             this.panelGL = new System.Windows.Forms.Panel();
             this.panelControls = new System.Windows.Forms.Panel();
@@ -142,7 +143,6 @@ namespace Re4QuadExtremeEditor
             this.saveFileDialogConvertETS = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogConvertITA = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogConvertAEV = new System.Windows.Forms.SaveFileDialog();
-            this.treeViewObjs = new NsMultiselectTreeView.MultiselectTreeView();
             this.menuStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -204,59 +204,59 @@ namespace Re4QuadExtremeEditor
             // toolStripMenuItemNewESL
             // 
             this.toolStripMenuItemNewESL.Name = "toolStripMenuItemNewESL";
-            this.toolStripMenuItemNewESL.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItemNewESL.Size = new System.Drawing.Size(240, 22);
             this.toolStripMenuItemNewESL.Text = "New Enemy ESL File";
             this.toolStripMenuItemNewESL.Click += new System.EventHandler(this.toolStripMenuItemNewESL_Click);
             // 
             // toolStripSeparatorNew1
             // 
             this.toolStripSeparatorNew1.Name = "toolStripSeparatorNew1";
-            this.toolStripSeparatorNew1.Size = new System.Drawing.Size(238, 6);
+            this.toolStripSeparatorNew1.Size = new System.Drawing.Size(237, 6);
             // 
             // toolStripMenuItemNewETS_Classic
             // 
             this.toolStripMenuItemNewETS_Classic.Name = "toolStripMenuItemNewETS_Classic";
-            this.toolStripMenuItemNewETS_Classic.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItemNewETS_Classic.Size = new System.Drawing.Size(240, 22);
             this.toolStripMenuItemNewETS_Classic.Text = "New EtcModel ETS File (Classic)";
             this.toolStripMenuItemNewETS_Classic.Click += new System.EventHandler(this.toolStripMenuItemNewETS_Classic_Click);
             // 
             // toolStripMenuItemNewITA_Classic
             // 
             this.toolStripMenuItemNewITA_Classic.Name = "toolStripMenuItemNewITA_Classic";
-            this.toolStripMenuItemNewITA_Classic.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItemNewITA_Classic.Size = new System.Drawing.Size(240, 22);
             this.toolStripMenuItemNewITA_Classic.Text = "New Itens ITA File (Classic)";
             this.toolStripMenuItemNewITA_Classic.Click += new System.EventHandler(this.toolStripMenuItemNewITA_Classic_Click);
             // 
             // toolStripMenuItemNewAEV_Classic
             // 
             this.toolStripMenuItemNewAEV_Classic.Name = "toolStripMenuItemNewAEV_Classic";
-            this.toolStripMenuItemNewAEV_Classic.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItemNewAEV_Classic.Size = new System.Drawing.Size(240, 22);
             this.toolStripMenuItemNewAEV_Classic.Text = "New Events AEV File (Classic)";
             this.toolStripMenuItemNewAEV_Classic.Click += new System.EventHandler(this.toolStripMenuItemNewAEV_Classic_Click);
             // 
             // toolStripSeparatorNew2
             // 
             this.toolStripSeparatorNew2.Name = "toolStripSeparatorNew2";
-            this.toolStripSeparatorNew2.Size = new System.Drawing.Size(238, 6);
+            this.toolStripSeparatorNew2.Size = new System.Drawing.Size(237, 6);
             // 
             // toolStripMenuItemNewETS_UHD
             // 
             this.toolStripMenuItemNewETS_UHD.Name = "toolStripMenuItemNewETS_UHD";
-            this.toolStripMenuItemNewETS_UHD.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItemNewETS_UHD.Size = new System.Drawing.Size(240, 22);
             this.toolStripMenuItemNewETS_UHD.Text = "New EtcModel ETS File (UHD)";
             this.toolStripMenuItemNewETS_UHD.Click += new System.EventHandler(this.toolStripMenuItemNewETS_UHD_Click);
             // 
             // toolStripMenuItemNewITA_UHD
             // 
             this.toolStripMenuItemNewITA_UHD.Name = "toolStripMenuItemNewITA_UHD";
-            this.toolStripMenuItemNewITA_UHD.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItemNewITA_UHD.Size = new System.Drawing.Size(240, 22);
             this.toolStripMenuItemNewITA_UHD.Text = "New Itens ITA File (UHD)";
             this.toolStripMenuItemNewITA_UHD.Click += new System.EventHandler(this.toolStripMenuItemNewITA_UHD_Click);
             // 
             // toolStripMenuItemNewAEV_UHD
             // 
             this.toolStripMenuItemNewAEV_UHD.Name = "toolStripMenuItemNewAEV_UHD";
-            this.toolStripMenuItemNewAEV_UHD.Size = new System.Drawing.Size(241, 22);
+            this.toolStripMenuItemNewAEV_UHD.Size = new System.Drawing.Size(240, 22);
             this.toolStripMenuItemNewAEV_UHD.Text = "New Events AEV File (UHD)";
             this.toolStripMenuItemNewAEV_UHD.Click += new System.EventHandler(this.toolStripMenuItemNewAEV_UHD_Click);
             // 
@@ -279,59 +279,59 @@ namespace Re4QuadExtremeEditor
             // toolStripMenuItemOpenESL
             // 
             this.toolStripMenuItemOpenESL.Name = "toolStripMenuItemOpenESL";
-            this.toolStripMenuItemOpenESL.Size = new System.Drawing.Size(246, 22);
+            this.toolStripMenuItemOpenESL.Size = new System.Drawing.Size(245, 22);
             this.toolStripMenuItemOpenESL.Text = "Open Enemy ESL File";
             this.toolStripMenuItemOpenESL.Click += new System.EventHandler(this.toolStripMenuItemOpenESL_Click);
             // 
             // toolStripSeparatorOpen1
             // 
             this.toolStripSeparatorOpen1.Name = "toolStripSeparatorOpen1";
-            this.toolStripSeparatorOpen1.Size = new System.Drawing.Size(243, 6);
+            this.toolStripSeparatorOpen1.Size = new System.Drawing.Size(242, 6);
             // 
             // toolStripMenuItemOpenETS_Classic
             // 
             this.toolStripMenuItemOpenETS_Classic.Name = "toolStripMenuItemOpenETS_Classic";
-            this.toolStripMenuItemOpenETS_Classic.Size = new System.Drawing.Size(246, 22);
+            this.toolStripMenuItemOpenETS_Classic.Size = new System.Drawing.Size(245, 22);
             this.toolStripMenuItemOpenETS_Classic.Text = "Open EtcModel ETS File (Classic)";
             this.toolStripMenuItemOpenETS_Classic.Click += new System.EventHandler(this.toolStripMenuItemOpenETS_Classic_Click);
             // 
             // toolStripMenuItemOpenITA_Classic
             // 
             this.toolStripMenuItemOpenITA_Classic.Name = "toolStripMenuItemOpenITA_Classic";
-            this.toolStripMenuItemOpenITA_Classic.Size = new System.Drawing.Size(246, 22);
+            this.toolStripMenuItemOpenITA_Classic.Size = new System.Drawing.Size(245, 22);
             this.toolStripMenuItemOpenITA_Classic.Text = "Open Itens ITA File (Classic)";
             this.toolStripMenuItemOpenITA_Classic.Click += new System.EventHandler(this.toolStripMenuItemOpenITA_Classic_Click);
             // 
             // toolStripMenuItemOpenAEV_Classic
             // 
             this.toolStripMenuItemOpenAEV_Classic.Name = "toolStripMenuItemOpenAEV_Classic";
-            this.toolStripMenuItemOpenAEV_Classic.Size = new System.Drawing.Size(246, 22);
+            this.toolStripMenuItemOpenAEV_Classic.Size = new System.Drawing.Size(245, 22);
             this.toolStripMenuItemOpenAEV_Classic.Text = "Open Events AEV File (Classic)";
             this.toolStripMenuItemOpenAEV_Classic.Click += new System.EventHandler(this.toolStripMenuItemOpenAEV_Classic_Click);
             // 
             // toolStripSeparatorOpen2
             // 
             this.toolStripSeparatorOpen2.Name = "toolStripSeparatorOpen2";
-            this.toolStripSeparatorOpen2.Size = new System.Drawing.Size(243, 6);
+            this.toolStripSeparatorOpen2.Size = new System.Drawing.Size(242, 6);
             // 
             // toolStripMenuItemOpenETS_UHD
             // 
             this.toolStripMenuItemOpenETS_UHD.Name = "toolStripMenuItemOpenETS_UHD";
-            this.toolStripMenuItemOpenETS_UHD.Size = new System.Drawing.Size(246, 22);
+            this.toolStripMenuItemOpenETS_UHD.Size = new System.Drawing.Size(245, 22);
             this.toolStripMenuItemOpenETS_UHD.Text = "Open EtcModel ETS File (UHD)";
             this.toolStripMenuItemOpenETS_UHD.Click += new System.EventHandler(this.toolStripMenuItemOpenETS_UHD_Click);
             // 
             // toolStripMenuItemOpenITA_UHD
             // 
             this.toolStripMenuItemOpenITA_UHD.Name = "toolStripMenuItemOpenITA_UHD";
-            this.toolStripMenuItemOpenITA_UHD.Size = new System.Drawing.Size(246, 22);
+            this.toolStripMenuItemOpenITA_UHD.Size = new System.Drawing.Size(245, 22);
             this.toolStripMenuItemOpenITA_UHD.Text = "Open Itens ITA File (UHD)";
             this.toolStripMenuItemOpenITA_UHD.Click += new System.EventHandler(this.toolStripMenuItemOpenITA_UHD_Click);
             // 
             // toolStripMenuItemOpenAEV_UHD
             // 
             this.toolStripMenuItemOpenAEV_UHD.Name = "toolStripMenuItemOpenAEV_UHD";
-            this.toolStripMenuItemOpenAEV_UHD.Size = new System.Drawing.Size(246, 22);
+            this.toolStripMenuItemOpenAEV_UHD.Size = new System.Drawing.Size(245, 22);
             this.toolStripMenuItemOpenAEV_UHD.Text = "Open Events AEV File (UHD)";
             this.toolStripMenuItemOpenAEV_UHD.Click += new System.EventHandler(this.toolStripMenuItemOpenAEV_UHD_Click);
             // 
@@ -354,20 +354,20 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemSaveESL.Enabled = false;
             this.toolStripMenuItemSaveESL.Name = "toolStripMenuItemSaveESL";
-            this.toolStripMenuItemSaveESL.Size = new System.Drawing.Size(194, 22);
+            this.toolStripMenuItemSaveESL.Size = new System.Drawing.Size(193, 22);
             this.toolStripMenuItemSaveESL.Text = "Save Enemy ESL File";
             this.toolStripMenuItemSaveESL.Click += new System.EventHandler(this.toolStripMenuItemSaveESL_Click);
             // 
             // toolStripSeparatorSave1
             // 
             this.toolStripSeparatorSave1.Name = "toolStripSeparatorSave1";
-            this.toolStripSeparatorSave1.Size = new System.Drawing.Size(191, 6);
+            this.toolStripSeparatorSave1.Size = new System.Drawing.Size(190, 6);
             // 
             // toolStripMenuItemSaveETS
             // 
             this.toolStripMenuItemSaveETS.Enabled = false;
             this.toolStripMenuItemSaveETS.Name = "toolStripMenuItemSaveETS";
-            this.toolStripMenuItemSaveETS.Size = new System.Drawing.Size(194, 22);
+            this.toolStripMenuItemSaveETS.Size = new System.Drawing.Size(193, 22);
             this.toolStripMenuItemSaveETS.Text = "Save EtcModel ETS File";
             this.toolStripMenuItemSaveETS.Click += new System.EventHandler(this.toolStripMenuItemSaveETS_Click);
             // 
@@ -375,7 +375,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemSaveITA.Enabled = false;
             this.toolStripMenuItemSaveITA.Name = "toolStripMenuItemSaveITA";
-            this.toolStripMenuItemSaveITA.Size = new System.Drawing.Size(194, 22);
+            this.toolStripMenuItemSaveITA.Size = new System.Drawing.Size(193, 22);
             this.toolStripMenuItemSaveITA.Text = "Save Itens ITA File";
             this.toolStripMenuItemSaveITA.Click += new System.EventHandler(this.toolStripMenuItemSaveITA_Click);
             // 
@@ -383,14 +383,14 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemSaveAEV.Enabled = false;
             this.toolStripMenuItemSaveAEV.Name = "toolStripMenuItemSaveAEV";
-            this.toolStripMenuItemSaveAEV.Size = new System.Drawing.Size(194, 22);
+            this.toolStripMenuItemSaveAEV.Size = new System.Drawing.Size(193, 22);
             this.toolStripMenuItemSaveAEV.Text = "Save Events AEV File";
             this.toolStripMenuItemSaveAEV.Click += new System.EventHandler(this.toolStripMenuItemSaveAEV_Click);
             // 
             // toolStripSeparatorSave2
             // 
             this.toolStripSeparatorSave2.Name = "toolStripSeparatorSave2";
-            this.toolStripSeparatorSave2.Size = new System.Drawing.Size(191, 6);
+            this.toolStripSeparatorSave2.Size = new System.Drawing.Size(190, 6);
             // 
             // toolStripMenuItemSaveDirectories
             // 
@@ -400,7 +400,7 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemDiretory_ITA,
             this.toolStripMenuItemDiretory_AEV});
             this.toolStripMenuItemSaveDirectories.Name = "toolStripMenuItemSaveDirectories";
-            this.toolStripMenuItemSaveDirectories.Size = new System.Drawing.Size(194, 22);
+            this.toolStripMenuItemSaveDirectories.Size = new System.Drawing.Size(193, 22);
             this.toolStripMenuItemSaveDirectories.Text = "Directories";
             this.toolStripMenuItemSaveDirectories.DropDownOpening += new System.EventHandler(this.toolStripMenuItemSaveDirectories_DropDownOpening);
             // 
@@ -449,20 +449,20 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemSaveAsESL.Enabled = false;
             this.toolStripMenuItemSaveAsESL.Name = "toolStripMenuItemSaveAsESL";
-            this.toolStripMenuItemSaveAsESL.Size = new System.Drawing.Size(210, 22);
+            this.toolStripMenuItemSaveAsESL.Size = new System.Drawing.Size(209, 22);
             this.toolStripMenuItemSaveAsESL.Text = "Save As Enemy ESL File";
             this.toolStripMenuItemSaveAsESL.Click += new System.EventHandler(this.toolStripMenuItemSaveAsESL_Click);
             // 
             // toolStripSeparatorSaveAs1
             // 
             this.toolStripSeparatorSaveAs1.Name = "toolStripSeparatorSaveAs1";
-            this.toolStripSeparatorSaveAs1.Size = new System.Drawing.Size(207, 6);
+            this.toolStripSeparatorSaveAs1.Size = new System.Drawing.Size(206, 6);
             // 
             // toolStripMenuItemSaveAsETS
             // 
             this.toolStripMenuItemSaveAsETS.Enabled = false;
             this.toolStripMenuItemSaveAsETS.Name = "toolStripMenuItemSaveAsETS";
-            this.toolStripMenuItemSaveAsETS.Size = new System.Drawing.Size(210, 22);
+            this.toolStripMenuItemSaveAsETS.Size = new System.Drawing.Size(209, 22);
             this.toolStripMenuItemSaveAsETS.Text = "Save As EtcModel ETS File";
             this.toolStripMenuItemSaveAsETS.Click += new System.EventHandler(this.toolStripMenuItemSaveAsETS_Click);
             // 
@@ -470,7 +470,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemSaveAsITA.Enabled = false;
             this.toolStripMenuItemSaveAsITA.Name = "toolStripMenuItemSaveAsITA";
-            this.toolStripMenuItemSaveAsITA.Size = new System.Drawing.Size(210, 22);
+            this.toolStripMenuItemSaveAsITA.Size = new System.Drawing.Size(209, 22);
             this.toolStripMenuItemSaveAsITA.Text = "Save As Itens ITA File";
             this.toolStripMenuItemSaveAsITA.Click += new System.EventHandler(this.toolStripMenuItemSaveAsITA_Click);
             // 
@@ -478,7 +478,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemSaveAsAEV.Enabled = false;
             this.toolStripMenuItemSaveAsAEV.Name = "toolStripMenuItemSaveAsAEV";
-            this.toolStripMenuItemSaveAsAEV.Size = new System.Drawing.Size(210, 22);
+            this.toolStripMenuItemSaveAsAEV.Size = new System.Drawing.Size(209, 22);
             this.toolStripMenuItemSaveAsAEV.Text = "Save As Events AEV File";
             this.toolStripMenuItemSaveAsAEV.Click += new System.EventHandler(this.toolStripMenuItemSaveAsAEV_Click);
             // 
@@ -497,7 +497,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemSaveConverterETS.Enabled = false;
             this.toolStripMenuItemSaveConverterETS.Name = "toolStripMenuItemSaveConverterETS";
-            this.toolStripMenuItemSaveConverterETS.Size = new System.Drawing.Size(287, 22);
+            this.toolStripMenuItemSaveConverterETS.Size = new System.Drawing.Size(284, 22);
             this.toolStripMenuItemSaveConverterETS.Text = "Save As EtcModel ETS File, Convert To ...";
             this.toolStripMenuItemSaveConverterETS.Click += new System.EventHandler(this.toolStripMenuItemSaveConverterETS_Click);
             // 
@@ -505,7 +505,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemSaveConverterITA.Enabled = false;
             this.toolStripMenuItemSaveConverterITA.Name = "toolStripMenuItemSaveConverterITA";
-            this.toolStripMenuItemSaveConverterITA.Size = new System.Drawing.Size(287, 22);
+            this.toolStripMenuItemSaveConverterITA.Size = new System.Drawing.Size(284, 22);
             this.toolStripMenuItemSaveConverterITA.Text = "Save As Itens ITA File, Convert To...";
             this.toolStripMenuItemSaveConverterITA.Click += new System.EventHandler(this.toolStripMenuItemSaveConverterITA_Click);
             // 
@@ -513,7 +513,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemSaveConverterAEV.Enabled = false;
             this.toolStripMenuItemSaveConverterAEV.Name = "toolStripMenuItemSaveConverterAEV";
-            this.toolStripMenuItemSaveConverterAEV.Size = new System.Drawing.Size(287, 22);
+            this.toolStripMenuItemSaveConverterAEV.Size = new System.Drawing.Size(284, 22);
             this.toolStripMenuItemSaveConverterAEV.Text = "Save As Events AEV File, Convert To...";
             this.toolStripMenuItemSaveConverterAEV.Click += new System.EventHandler(this.toolStripMenuItemSaveConverterAEV_Click);
             // 
@@ -534,20 +534,20 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemClearESL.Enabled = false;
             this.toolStripMenuItemClearESL.Name = "toolStripMenuItemClearESL";
-            this.toolStripMenuItemClearESL.Size = new System.Drawing.Size(197, 22);
+            this.toolStripMenuItemClearESL.Size = new System.Drawing.Size(196, 22);
             this.toolStripMenuItemClearESL.Text = "Clear Enemy ESL List";
             this.toolStripMenuItemClearESL.Click += new System.EventHandler(this.toolStripMenuItemClearESL_Click);
             // 
             // toolStripSeparatorClear1
             // 
             this.toolStripSeparatorClear1.Name = "toolStripSeparatorClear1";
-            this.toolStripSeparatorClear1.Size = new System.Drawing.Size(194, 6);
+            this.toolStripSeparatorClear1.Size = new System.Drawing.Size(193, 6);
             // 
             // toolStripMenuItemClearETS
             // 
             this.toolStripMenuItemClearETS.Enabled = false;
             this.toolStripMenuItemClearETS.Name = "toolStripMenuItemClearETS";
-            this.toolStripMenuItemClearETS.Size = new System.Drawing.Size(197, 22);
+            this.toolStripMenuItemClearETS.Size = new System.Drawing.Size(196, 22);
             this.toolStripMenuItemClearETS.Text = "Clear EtcModel ETS List";
             this.toolStripMenuItemClearETS.Click += new System.EventHandler(this.toolStripMenuItemClearETS_Click);
             // 
@@ -555,7 +555,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemClearITA.Enabled = false;
             this.toolStripMenuItemClearITA.Name = "toolStripMenuItemClearITA";
-            this.toolStripMenuItemClearITA.Size = new System.Drawing.Size(197, 22);
+            this.toolStripMenuItemClearITA.Size = new System.Drawing.Size(196, 22);
             this.toolStripMenuItemClearITA.Text = "Clear Itens ITA List";
             this.toolStripMenuItemClearITA.Click += new System.EventHandler(this.toolStripMenuItemClearITA_Click);
             // 
@@ -563,7 +563,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemClearAEV.Enabled = false;
             this.toolStripMenuItemClearAEV.Name = "toolStripMenuItemClearAEV";
-            this.toolStripMenuItemClearAEV.Size = new System.Drawing.Size(197, 22);
+            this.toolStripMenuItemClearAEV.Size = new System.Drawing.Size(196, 22);
             this.toolStripMenuItemClearAEV.Text = "Clear Events AEV List";
             this.toolStripMenuItemClearAEV.Click += new System.EventHandler(this.toolStripMenuItemClearAEV_Click);
             // 
@@ -672,7 +672,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemHideRoomModel.Name = "toolStripMenuItemHideRoomModel";
             this.toolStripMenuItemHideRoomModel.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D1)));
-            this.toolStripMenuItemHideRoomModel.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemHideRoomModel.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemHideRoomModel.Text = "Hide Room Model";
             this.toolStripMenuItemHideRoomModel.Click += new System.EventHandler(this.toolStripMenuItemHideRoomModel_Click);
             // 
@@ -680,7 +680,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemHideEnemyESL.Name = "toolStripMenuItemHideEnemyESL";
             this.toolStripMenuItemHideEnemyESL.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D2)));
-            this.toolStripMenuItemHideEnemyESL.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemHideEnemyESL.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemHideEnemyESL.Text = "Hide Enemy .ESL";
             this.toolStripMenuItemHideEnemyESL.Click += new System.EventHandler(this.toolStripMenuItemHideEnemyESL_Click);
             // 
@@ -688,7 +688,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemHideEtcmodelETS.Name = "toolStripMenuItemHideEtcmodelETS";
             this.toolStripMenuItemHideEtcmodelETS.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D3)));
-            this.toolStripMenuItemHideEtcmodelETS.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemHideEtcmodelETS.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemHideEtcmodelETS.Text = "Hide Etcmodel .ETS";
             this.toolStripMenuItemHideEtcmodelETS.Click += new System.EventHandler(this.toolStripMenuItemHideEtcmodelETS_Click);
             // 
@@ -696,7 +696,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemHideItemsITA.Name = "toolStripMenuItemHideItemsITA";
             this.toolStripMenuItemHideItemsITA.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D4)));
-            this.toolStripMenuItemHideItemsITA.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemHideItemsITA.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemHideItemsITA.Text = "Hide Items .ITA";
             this.toolStripMenuItemHideItemsITA.Click += new System.EventHandler(this.toolStripMenuItemHideItemsITA_Click);
             // 
@@ -704,14 +704,14 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemHideEventsAEV.Name = "toolStripMenuItemHideEventsAEV";
             this.toolStripMenuItemHideEventsAEV.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D5)));
-            this.toolStripMenuItemHideEventsAEV.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemHideEventsAEV.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemHideEventsAEV.Text = "Hide Events .AEV";
             this.toolStripMenuItemHideEventsAEV.Click += new System.EventHandler(this.toolStripMenuItemHideEventsAEV_Click);
             // 
             // toolStripSeparatorView1
             // 
             this.toolStripSeparatorView1.Name = "toolStripSeparatorView1";
-            this.toolStripSeparatorView1.Size = new System.Drawing.Size(214, 6);
+            this.toolStripSeparatorView1.Size = new System.Drawing.Size(213, 6);
             // 
             // toolStripMenuItemSubMenuEnemy
             // 
@@ -723,7 +723,7 @@ namespace Re4QuadExtremeEditor
             this.toolStripSeparatorSubMenuEnemy2,
             this.toolStripMenuItemAutoDefineRoom});
             this.toolStripMenuItemSubMenuEnemy.Name = "toolStripMenuItemSubMenuEnemy";
-            this.toolStripMenuItemSubMenuEnemy.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemSubMenuEnemy.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemSubMenuEnemy.Text = "Enemy Options";
             // 
             // toolStripMenuItemHideDesabledEnemy
@@ -782,7 +782,7 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemHideItemTriggerZone,
             this.toolStripMenuItemHideItemTriggerRadius});
             this.toolStripMenuItemSubMenuItem.Name = "toolStripMenuItemSubMenuItem";
-            this.toolStripMenuItemSubMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemSubMenuItem.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemSubMenuItem.Text = "Item Options";
             // 
             // toolStripMenuItemItemPositionAtAssociatedObjectLocation
@@ -820,14 +820,14 @@ namespace Re4QuadExtremeEditor
             this.toolStripSeparatorSubMenuSpecial,
             this.toolStripMenuItemUseMoreSpecialColors});
             this.toolStripMenuItemSubMenuSpecial.Name = "toolStripMenuItemSubMenuSpecial";
-            this.toolStripMenuItemSubMenuSpecial.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemSubMenuSpecial.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemSubMenuSpecial.Text = "Special Options";
             // 
             // toolStripMenuItemHideSpecialTriggerZone
             // 
             this.toolStripMenuItemHideSpecialTriggerZone.Name = "toolStripMenuItemHideSpecialTriggerZone";
             this.toolStripMenuItemHideSpecialTriggerZone.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D8)));
-            this.toolStripMenuItemHideSpecialTriggerZone.Size = new System.Drawing.Size(296, 22);
+            this.toolStripMenuItemHideSpecialTriggerZone.Size = new System.Drawing.Size(298, 22);
             this.toolStripMenuItemHideSpecialTriggerZone.Text = "Hide Special Trigger Zone";
             this.toolStripMenuItemHideSpecialTriggerZone.Click += new System.EventHandler(this.toolStripMenuItemHideSpecialTriggerZone_Click);
             // 
@@ -836,7 +836,7 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemHideExtraObjs.Name = "toolStripMenuItemHideExtraObjs";
             this.toolStripMenuItemHideExtraObjs.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D8)));
-            this.toolStripMenuItemHideExtraObjs.Size = new System.Drawing.Size(296, 22);
+            this.toolStripMenuItemHideExtraObjs.Size = new System.Drawing.Size(298, 22);
             this.toolStripMenuItemHideExtraObjs.Text = "Hide Extra Objects";
             this.toolStripMenuItemHideExtraObjs.Click += new System.EventHandler(this.toolStripMenuItemHideExtraObjs_Click);
             // 
@@ -844,7 +844,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemHideOnlyWarpDoor.Name = "toolStripMenuItemHideOnlyWarpDoor";
             this.toolStripMenuItemHideOnlyWarpDoor.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D9)));
-            this.toolStripMenuItemHideOnlyWarpDoor.Size = new System.Drawing.Size(296, 22);
+            this.toolStripMenuItemHideOnlyWarpDoor.Size = new System.Drawing.Size(298, 22);
             this.toolStripMenuItemHideOnlyWarpDoor.Text = "Hide Only Warp Door";
             this.toolStripMenuItemHideOnlyWarpDoor.Click += new System.EventHandler(this.toolStripMenuItemHideOnlyWarpDoor_Click);
             // 
@@ -853,20 +853,20 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemHideExtraExceptWarpDoor.Name = "toolStripMenuItemHideExtraExceptWarpDoor";
             this.toolStripMenuItemHideExtraExceptWarpDoor.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D9)));
-            this.toolStripMenuItemHideExtraExceptWarpDoor.Size = new System.Drawing.Size(296, 22);
+            this.toolStripMenuItemHideExtraExceptWarpDoor.Size = new System.Drawing.Size(298, 22);
             this.toolStripMenuItemHideExtraExceptWarpDoor.Text = "Hide Extra Except Warp Door";
             this.toolStripMenuItemHideExtraExceptWarpDoor.Click += new System.EventHandler(this.toolStripMenuItemHideExtraExceptWarpDoor_Click);
             // 
             // toolStripSeparatorSubMenuSpecial
             // 
             this.toolStripSeparatorSubMenuSpecial.Name = "toolStripSeparatorSubMenuSpecial";
-            this.toolStripSeparatorSubMenuSpecial.Size = new System.Drawing.Size(293, 6);
+            this.toolStripSeparatorSubMenuSpecial.Size = new System.Drawing.Size(295, 6);
             // 
             // toolStripMenuItemUseMoreSpecialColors
             // 
             this.toolStripMenuItemUseMoreSpecialColors.Name = "toolStripMenuItemUseMoreSpecialColors";
             this.toolStripMenuItemUseMoreSpecialColors.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Oemtilde)));
-            this.toolStripMenuItemUseMoreSpecialColors.Size = new System.Drawing.Size(296, 22);
+            this.toolStripMenuItemUseMoreSpecialColors.Size = new System.Drawing.Size(298, 22);
             this.toolStripMenuItemUseMoreSpecialColors.Text = "Use More Special Colors";
             this.toolStripMenuItemUseMoreSpecialColors.Click += new System.EventHandler(this.toolStripMenuItemUseMoreSpecialColors_Click);
             // 
@@ -875,7 +875,7 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemSubMenuEtcModel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemEtcModelUseScale});
             this.toolStripMenuItemSubMenuEtcModel.Name = "toolStripMenuItemSubMenuEtcModel";
-            this.toolStripMenuItemSubMenuEtcModel.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemSubMenuEtcModel.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemSubMenuEtcModel.Text = "EtcModel Options";
             // 
             // toolStripMenuItemEtcModelUseScale
@@ -888,25 +888,25 @@ namespace Re4QuadExtremeEditor
             // toolStripSeparatorView2
             // 
             this.toolStripSeparatorView2.Name = "toolStripSeparatorView2";
-            this.toolStripSeparatorView2.Size = new System.Drawing.Size(214, 6);
+            this.toolStripSeparatorView2.Size = new System.Drawing.Size(213, 6);
             // 
             // toolStripMenuItemNodeDisplayNameInHex
             // 
             this.toolStripMenuItemNodeDisplayNameInHex.Name = "toolStripMenuItemNodeDisplayNameInHex";
-            this.toolStripMenuItemNodeDisplayNameInHex.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemNodeDisplayNameInHex.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemNodeDisplayNameInHex.Text = "Display Obj Name In Hex";
             this.toolStripMenuItemNodeDisplayNameInHex.Click += new System.EventHandler(this.toolStripMenuItemNodeDisplayNameInHex_Click);
             // 
             // toolStripSeparatorView3
             // 
             this.toolStripSeparatorView3.Name = "toolStripSeparatorView3";
-            this.toolStripSeparatorView3.Size = new System.Drawing.Size(214, 6);
+            this.toolStripSeparatorView3.Size = new System.Drawing.Size(213, 6);
             // 
             // toolStripMenuItemResetCamera
             // 
             this.toolStripMenuItemResetCamera.Name = "toolStripMenuItemResetCamera";
             this.toolStripMenuItemResetCamera.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.toolStripMenuItemResetCamera.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemResetCamera.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemResetCamera.Text = "Reset Camera";
             this.toolStripMenuItemResetCamera.Click += new System.EventHandler(this.toolStripMenuItemResetCamera_Click);
             // 
@@ -914,7 +914,7 @@ namespace Re4QuadExtremeEditor
             // 
             this.toolStripMenuItemRefresh.Name = "toolStripMenuItemRefresh";
             this.toolStripMenuItemRefresh.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.toolStripMenuItemRefresh.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItemRefresh.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemRefresh.Text = "Refresh Display";
             this.toolStripMenuItemRefresh.Click += new System.EventHandler(this.toolStripMenuItemRefresh_Click);
             // 
@@ -1001,6 +1001,24 @@ namespace Re4QuadExtremeEditor
             this.splitContainer2.SplitterDistance = 216;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
+            // 
+            // treeViewObjs
+            // 
+            this.treeViewObjs.BackColor = System.Drawing.SystemColors.Control;
+            this.treeViewObjs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewObjs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewObjs.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
+            this.treeViewObjs.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.treeViewObjs.HideSelection = false;
+            this.treeViewObjs.LineColor = System.Drawing.Color.DarkGray;
+            this.treeViewObjs.Location = new System.Drawing.Point(0, 0);
+            this.treeViewObjs.Name = "treeViewObjs";
+            this.treeViewObjs.SelectedNodeBackColor = System.Drawing.SystemColors.Highlight;
+            this.treeViewObjs.SelectedNodes = ((System.Collections.Generic.Dictionary<int, System.Windows.Forms.TreeNode>)(resources.GetObject("treeViewObjs.SelectedNodes")));
+            this.treeViewObjs.ShowNodeToolTips = true;
+            this.treeViewObjs.Size = new System.Drawing.Size(208, 216);
+            this.treeViewObjs.TabIndex = 0;
+            this.treeViewObjs.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewObjs_AfterSelect);
             // 
             // propertyGridObjs
             // 
@@ -1122,24 +1140,6 @@ namespace Re4QuadExtremeEditor
             this.saveFileDialogConvertAEV.Title = "Save Convert Events AEV File";
             this.saveFileDialogConvertAEV.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialogConvertAEV_FileOk);
             // 
-            // treeViewObjs
-            // 
-            this.treeViewObjs.BackColor = System.Drawing.SystemColors.Control;
-            this.treeViewObjs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeViewObjs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewObjs.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
-            this.treeViewObjs.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.treeViewObjs.HideSelection = false;
-            this.treeViewObjs.LineColor = System.Drawing.Color.DarkGray;
-            this.treeViewObjs.Location = new System.Drawing.Point(0, 0);
-            this.treeViewObjs.Name = "treeViewObjs";
-            this.treeViewObjs.SelectedNodeBackColor = System.Drawing.SystemColors.Highlight;
-            this.treeViewObjs.SelectedNodes = ((System.Collections.Generic.List<System.Windows.Forms.TreeNode>)(resources.GetObject("treeViewObjs.SelectedNodes")));
-            this.treeViewObjs.ShowNodeToolTips = true;
-            this.treeViewObjs.Size = new System.Drawing.Size(208, 216);
-            this.treeViewObjs.TabIndex = 0;
-            this.treeViewObjs.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewObjs_AfterSelect);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1153,6 +1153,7 @@ namespace Re4QuadExtremeEditor
             this.Name = "MainForm";
             this.Text = "RE4 Quad Extreme Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyUp);
             this.menuStripMenu.ResumeLayout(false);

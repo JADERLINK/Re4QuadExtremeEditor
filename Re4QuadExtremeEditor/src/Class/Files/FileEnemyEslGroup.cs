@@ -144,7 +144,7 @@ namespace Re4QuadExtremeEditor.src.Class.Files
                     r += Lang.GetAttributeText(aLang.ListBoxAnotherValue);
                 }
 
-                r += " -  0x";
+                r += " - 0x";
 
                 ushort v = Methods.ReturnEnemyID(ID);
                 string sv = v.ToString("X4");

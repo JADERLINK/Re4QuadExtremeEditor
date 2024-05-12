@@ -37,12 +37,14 @@ namespace Re4QuadExtremeEditor.src.Controls
 
         public void UpdateSelection()
         {
+            List<System.Windows.Forms.TreeNode> SelectedNodes = DataBase.SelectedNodes.Values.ToList();
+
             MoveObjCombos combos = MoveObjCombos.Null;
-            if (DataBase.SelectedNodes.Count > 0)
+            if (SelectedNodes.Count > 0)
             {
-                for (int i = 0; i < DataBase.SelectedNodes.Count; i++)
+                for (int i = 0; i < SelectedNodes.Count; i++)
                 {
-                    if (DataBase.SelectedNodes[i] is Object3D obj)
+                    if (SelectedNodes[i] is Object3D obj)
                     {
                         var parent = obj.Parent;
                         if (parent is EnemyNodeGroup Enemy)
@@ -332,7 +334,7 @@ namespace Re4QuadExtremeEditor.src.Controls
             { newValue = 100f; }
 
             labelObjSpeed.Text = Lang.GetText(eLang.labelObjSpeed) + " " + ((int)newValue).ToString().PadLeft(3) + "%";
-            Globals.objSpeedMultiplier = newValue / 100.0f;
+            MoveObj.objSpeedMultiplier = newValue / 100.0f;
         }
 
         private void comboBoxMoveMode_SelectedIndexChanged(object sender, EventArgs e)
@@ -368,7 +370,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         {
             if (DataBase.SelectedRoom != null)
             {
-                foreach (TreeNode item in DataBase.SelectedNodes)
+                foreach (TreeNode item in DataBase.SelectedNodes.Values)
                 {
                     if (item.Parent != null && item is Object3D obj)
                     {
@@ -472,7 +474,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         {
             if (EnableSquare && moveObjSquare_mouseDown)
             {
-                foreach (TreeNode item in DataBase.SelectedNodes)
+                foreach (TreeNode item in DataBase.SelectedNodes.Values)
                 {
                     if (item is Object3D obj && item.Parent is TreeNodeGroup)
                     {
@@ -570,7 +572,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         {
             if (EnableVertical && moveObjVertical_mouseDown)
             {
-                foreach (TreeNode item in DataBase.SelectedNodes)
+                foreach (TreeNode item in DataBase.SelectedNodes.Values)
                 {
                     if (item is Object3D obj && item.Parent is TreeNodeGroup)
                     {
@@ -653,7 +655,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         {
             if (EnableHorisontal1 && moveObjHorisontal1_mouseDown)
             {
-                foreach (TreeNode item in DataBase.SelectedNodes)
+                foreach (TreeNode item in DataBase.SelectedNodes.Values)
                 {
                     if (item is Object3D obj && item.Parent is TreeNodeGroup)
                     {
@@ -733,7 +735,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         {
             if (EnableHorisontal2 && moveObjHorisontal2_mouseDown)
             {
-                foreach (TreeNode item in DataBase.SelectedNodes)
+                foreach (TreeNode item in DataBase.SelectedNodes.Values)
                 {
                     if (item is Object3D obj && item.Parent is TreeNodeGroup)
                     {
@@ -813,7 +815,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         {
             if (EnableHorisontal3 && moveObjHorisontal3_mouseDown)
             {
-                foreach (TreeNode item in DataBase.SelectedNodes)
+                foreach (TreeNode item in DataBase.SelectedNodes.Values)
                 {
                     if (item is Object3D obj && item.Parent is TreeNodeGroup)
                     {

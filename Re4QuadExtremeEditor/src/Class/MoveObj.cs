@@ -16,6 +16,8 @@ namespace Re4QuadExtremeEditor.src.Class
 
     public static class MoveObj
     {
+        public static float objSpeedMultiplier = 1.0f;
+
         public static bool LockMoveSquareVertical = false;
         public static bool LockMoveSquareHorisontal = false;
 
@@ -56,7 +58,7 @@ namespace Re4QuadExtremeEditor.src.Class
         public static Dictionary<ObjKey, Vector3[]> GetSavedPosition() 
         {
             Dictionary<ObjKey, Vector3[]> r = new Dictionary<ObjKey, Vector3[]>();
-            foreach (var item in DataBase.SelectedNodes)
+            foreach (var item in DataBase.SelectedNodes.Values)
             {
                 if (item is Object3D obj && item.Parent is TreeNodeGroup)
                 {
@@ -69,7 +71,7 @@ namespace Re4QuadExtremeEditor.src.Class
         public static Dictionary<ObjKey, Vector3[]> GetSavedRotationAngles() 
         {
             Dictionary<ObjKey, Vector3[]> r = new Dictionary<ObjKey, Vector3[]>();
-            foreach (var item in DataBase.SelectedNodes)
+            foreach (var item in DataBase.SelectedNodes.Values)
             {
                 if (item is Object3D obj && item.Parent is TreeNodeGroup)
                 {
@@ -82,7 +84,7 @@ namespace Re4QuadExtremeEditor.src.Class
         public static Dictionary<ObjKey, Vector3[]> GetSavedScales()
         {
             Dictionary<ObjKey, Vector3[]> r = new Dictionary<ObjKey, Vector3[]>();
-            foreach (var item in DataBase.SelectedNodes)
+            foreach (var item in DataBase.SelectedNodes.Values)
             {
                 if (item is Object3D obj && item.Parent is TreeNodeGroup)
                 {
@@ -104,7 +106,7 @@ namespace Re4QuadExtremeEditor.src.Class
                     MousePosY = -MousePosY;
                 }
 
-                float sensitivity = 10f * Globals.objSpeedMultiplier;
+                float sensitivity = 10f * objSpeedMultiplier;
 
                 Vector3 pos = savedPos[0];
 
@@ -212,7 +214,7 @@ namespace Re4QuadExtremeEditor.src.Class
                     MousePosX = -MousePosX;
                 }
 
-                float sensitivity = 0.005f * Globals.objSpeedMultiplier;
+                float sensitivity = 0.005f * objSpeedMultiplier;
 
                 Vector3 angle = savedPos[0];
 
@@ -247,7 +249,7 @@ namespace Re4QuadExtremeEditor.src.Class
                     MousePosY = -MousePosY;
                 }
 
-                float sensitivity = 0.001f * Globals.objSpeedMultiplier;
+                float sensitivity = 0.001f * objSpeedMultiplier;
 
                 Vector3 scale = savedPos[0];
 
@@ -407,7 +409,7 @@ namespace Re4QuadExtremeEditor.src.Class
         private static Vector3 MoveZonePosition(Vector3 savedPos, int MousePosX, int MousePosY, Camera camera, MoveDirection moveDirection) 
         {
             Vector3 vec = savedPos;
-            float sensitivity = 10f * Globals.objSpeedMultiplier;
+            float sensitivity = 10f * objSpeedMultiplier;
 
             if (moveDirection == MoveDirection.X)
             {
@@ -448,7 +450,7 @@ namespace Re4QuadExtremeEditor.src.Class
 
         private static void MoveZoneWall(ref Vector3 pointA, ref Vector3 pointB, int MousePos) 
         {
-            float sensitivity = 10f * Globals.objSpeedMultiplier;
+            float sensitivity = 10f * objSpeedMultiplier;
             Vector3 direction = Vector3.Normalize((pointA - pointB) / 100);
             float yaw = (float)Math.Atan2(direction.Z, direction.X);
             Vector3 side = Vector3.Zero;
@@ -470,7 +472,7 @@ namespace Re4QuadExtremeEditor.src.Class
                     MousePosY = -MousePosY;
                 }
 
-                float sensitivity = 10f * Globals.objSpeedMultiplier;
+                float sensitivity = 10f * objSpeedMultiplier;
 
                 Vector3 PosY = savedPos[5];
                 PosY.Y += sensitivity * MousePosY;
@@ -491,7 +493,7 @@ namespace Re4QuadExtremeEditor.src.Class
                     MousePosX = -MousePosX;
                 }
 
-                float sensitivity = 5f * Globals.objSpeedMultiplier;
+                float sensitivity = 5f * objSpeedMultiplier;
 
                 Vector3 Height = savedPos[5];
                 Height.Z += sensitivity * MousePosX;
@@ -512,7 +514,7 @@ namespace Re4QuadExtremeEditor.src.Class
                     MousePosX = -MousePosX;
                 }
 
-                float sensitivity = 0.002f * Globals.objSpeedMultiplier;
+                float sensitivity = 0.002f * objSpeedMultiplier;
 
                 Vector3[] Arr = (Vector3[])savedPos.Clone();
 
@@ -565,7 +567,7 @@ namespace Re4QuadExtremeEditor.src.Class
                 }
                 else if (category == SpecialZoneCategory.Category02)
                 {
-                    float sensitivity = 5f * Globals.objSpeedMultiplier;
+                    float sensitivity = 5f * objSpeedMultiplier;
                     Vector3 Scale = savedPos[5];
                     Scale.X += sensitivity * MousePosX;
                     Arr[5] = Scale;

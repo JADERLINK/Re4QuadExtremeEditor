@@ -19,79 +19,56 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
 {
     public class MultiSelectProperty : GenericProperty
     {
+        private UpdateMethods updateMethods = null;
 
-        private void UpdateSetFloatType()
-        {
-            for (int i = 0; i < EtcModelETS.Count; i++)
-            {
-                ((EtcModelProperty)EtcModelETS[i]).UpdateSetFloatType();
-            }
-            for (int i = 0; i < SpecialITA.Count; i++)
-            {
-                ((SpecialProperty)SpecialITA[i]).UpdateSetFloatType();
-            }
-            for (int i = 0; i < SpecialAEV.Count; i++)
-            {
-                ((SpecialProperty)SpecialAEV[i]).UpdateSetFloatType();
-            }
-        }
-
-        public MultiSelectProperty(List<TreeNode> Selecteds, UpdateMethods updateMethods) : base()
+        public MultiSelectProperty(UpdateMethods updateMethods) : base()
         {
             SetThis(this);
 
-            EnemyESL = new GenericCollection();
-            EtcModelETS = new GenericCollection();
-            SpecialITA = new GenericCollection();
-            SpecialAEV = new GenericCollection();
+            this.updateMethods = updateMethods;
+
+            EnemyESL = 0;
+            EtcModelETS = 0;
+            SpecialITA = 0;
+            SpecialAEV = 0;
             MultiSelectInfo = new MultiSelectObjInfoToProperty(Lang.GetAttributeText(aLang.MultiSelectInfoValueText), updateMethods);
 
-            foreach (var item in Selecteds)
-            {
-                if (item is Object3D obj)
-                {
-                    ushort Id = obj.ObjLineRef;
-                    var group = obj.Group;
-                    if (group == GroupType.ESL)
-                    {
-                        EnemyProperty p = new EnemyProperty(Id, updateMethods, ((EnemyNodeGroup)obj.Parent).PropertyMethods, true);
-                        EnemyESL.Add(p);
-                        MultiSelectInfo.Add(p);
-                    }
-                    else if (group == GroupType.ETS)
-                    {
-                        EtcModelProperty p = new EtcModelProperty(Id, updateMethods, ((EtcModelNodeGroup)obj.Parent).PropertyMethods, true);
-                        p.UpdateSetFloatTypeEvent += UpdateSetFloatType;
-                        EtcModelETS.Add(p);
-                        MultiSelectInfo.Add(p);
-                    }
-                    else if (group == GroupType.ITA)
-                    {
-                        SpecialProperty p = new SpecialProperty(Id, updateMethods, ((SpecialNodeGroup)obj.Parent).PropertyMethods, false, true);
-                        p.UpdateSetFloatTypeEvent += UpdateSetFloatType;
-                        SpecialITA.Add(p);
-                        MultiSelectInfo.Add(p);
-                    }
-                    else if (group == GroupType.AEV)
-                    {
-                        SpecialProperty p = new SpecialProperty(Id, updateMethods, ((SpecialNodeGroup)obj.Parent).PropertyMethods, false, true);
-                        p.UpdateSetFloatTypeEvent += UpdateSetFloatType;
-                        SpecialAEV.Add(p);
-                        MultiSelectInfo.Add(p);
-                    }
-                
-                }
-            }
+            ChangePropertyIsBrowsable("MultiSelectInfo", false);
+            ChangePropertyIsBrowsable("EnemyESL", false);
+            ChangePropertyIsBrowsable("EtcModelETS", false);
+            ChangePropertyIsBrowsable("SpecialITA", false);
+            ChangePropertyIsBrowsable("SpecialAEV", false);
+        }
 
-            //EnemyESL.OrderList();
-            //EtcModelETS.OrderList();
-            //SpecialITA.OrderList();
-            //SpecialAEV.OrderList();
+        public void LoadContent(List<TreeNode> Selecteds) 
+        {
+            var Object3DEnemy = Selecteds.FindAll(o => o.Parent != null && o.Parent is EnemyNodeGroup).Cast<Object3D>().ToArray();
+            var EnemyPropertyList = (from obj in Object3DEnemy select new EnemyProperty(obj.ObjLineRef, updateMethods, ((EnemyNodeGroup)obj.Parent).PropertyMethods, true));
 
-            ChangePropertyIsBrowsable("EnemyESL", EnemyESL.Count != 0);
-            ChangePropertyIsBrowsable("EtcModelETS", EtcModelETS.Count != 0);
-            ChangePropertyIsBrowsable("SpecialITA", SpecialITA.Count != 0);
-            ChangePropertyIsBrowsable("SpecialAEV", SpecialAEV.Count != 0);
+            var Object3DEtcModel = Selecteds.FindAll(o => o.Parent != null && o.Parent is EtcModelNodeGroup).Cast<Object3D>().ToArray();
+            var EtcModelPropertyList = (from obj in Object3DEtcModel select new EtcModelProperty(obj.ObjLineRef, updateMethods, ((EtcModelNodeGroup)obj.Parent).PropertyMethods, true));
+
+            var Object3DSpecialITA = Selecteds.FindAll(o => o.Parent != null && o.Parent is SpecialNodeGroup g && g.Group == GroupType.ITA).Cast<Object3D>().ToArray();
+            var SpecialITAPropertyList = (from obj in Object3DSpecialITA select new SpecialProperty(obj.ObjLineRef, updateMethods, ((SpecialNodeGroup)obj.Parent).PropertyMethods, false, true));
+
+            var Object3DSpecialAEV = Selecteds.FindAll(o => o.Parent != null && o.Parent is SpecialNodeGroup g && g.Group == GroupType.AEV).Cast<Object3D>().ToArray();
+            var SpecialAEVPropertyList = (from obj in Object3DSpecialAEV select new SpecialProperty(obj.ObjLineRef, updateMethods, ((SpecialNodeGroup)obj.Parent).PropertyMethods, false, true));
+
+            MultiSelectInfo.AddRange(EnemyPropertyList);
+            MultiSelectInfo.AddRange(EtcModelPropertyList);
+            MultiSelectInfo.AddRange(SpecialITAPropertyList);
+            MultiSelectInfo.AddRange(SpecialAEVPropertyList);
+
+            EnemyESL = Object3DEnemy.LongLength;
+            EtcModelETS = Object3DEtcModel.LongLength;
+            SpecialITA = Object3DSpecialITA.LongLength;
+            SpecialAEV = Object3DSpecialAEV.LongLength;
+
+            ChangePropertyIsBrowsable("MultiSelectInfo", true);
+            ChangePropertyIsBrowsable("EnemyESL", EnemyESL != 0);
+            ChangePropertyIsBrowsable("EtcModelETS", EtcModelETS != 0);
+            ChangePropertyIsBrowsable("SpecialITA", SpecialITA != 0);
+            ChangePropertyIsBrowsable("SpecialAEV", SpecialAEV != 0);
         }
 
         [CustomCategory(aLang.MultiSelectCategory)]
@@ -111,10 +88,10 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
         [DefaultValue(null)]
         [ReadOnly(false)]
         [Browsable(false)]
-        [TypeConverter(typeof(GenericCollectionConverter))]
-        [Editor(typeof(NoneUITypeEditor), typeof(UITypeEditor))]
+        //[TypeConverter(typeof(GenericCollectionConverter))]
+        //[Editor(typeof(NoneUITypeEditor), typeof(UITypeEditor))]
         [DynamicTypeDescriptor.Id(1, 0)]
-        public GenericCollection EnemyESL { get; private set; }
+        public long EnemyESL { get; private set; }
 
 
 
@@ -124,10 +101,10 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
         [DefaultValue(null)]
         [ReadOnly(false)]
         [Browsable(false)]
-        [TypeConverter(typeof(GenericCollectionConverter))]
-        [Editor(typeof(NoneUITypeEditor), typeof(UITypeEditor))]
+        //[TypeConverter(typeof(GenericCollectionConverter))]
+        //[Editor(typeof(NoneUITypeEditor), typeof(UITypeEditor))]
         [DynamicTypeDescriptor.Id(2, 0)]
-        public GenericCollection EtcModelETS { get; private set; }
+        public long EtcModelETS { get; private set; }
 
 
 
@@ -137,10 +114,10 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
         [DefaultValue(null)]
         [ReadOnly(false)]
         [Browsable(false)]
-        [TypeConverter(typeof(GenericCollectionConverter))]
-        [Editor(typeof(NoneUITypeEditor), typeof(UITypeEditor))]
+        //[TypeConverter(typeof(GenericCollectionConverter))]
+        //[Editor(typeof(NoneUITypeEditor), typeof(UITypeEditor))]
         [DynamicTypeDescriptor.Id(3, 0)]
-        public GenericCollection SpecialITA { get; private set; }
+        public long SpecialITA { get; private set; }
 
 
 
@@ -150,10 +127,10 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
         [DefaultValue(null)]
         [ReadOnly(false)]
         [Browsable(false)]
-        [TypeConverter(typeof(GenericCollectionConverter))]
-        [Editor(typeof(NoneUITypeEditor), typeof(UITypeEditor))]
+        //[TypeConverter(typeof(GenericCollectionConverter))]
+        //[Editor(typeof(NoneUITypeEditor), typeof(UITypeEditor))]
         [DynamicTypeDescriptor.Id(4, 0)]
-        public GenericCollection SpecialAEV { get; private set; }
+        public long SpecialAEV { get; private set; }
 
     }
 

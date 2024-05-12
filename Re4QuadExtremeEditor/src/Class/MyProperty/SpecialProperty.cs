@@ -17,7 +17,7 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
 {
     [DefaultProperty("InternalLineID")]
     [TypeConverter(typeof(GenericConverter))]
-    public class SpecialProperty : GenericProperty, IInternalID, IDisplay
+    public class SpecialProperty : GenericProperty, IInternalID
     {
         public event CustomDelegates.ActivateMethod UpdateSetFloatTypeEvent;
 
@@ -893,8 +893,17 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
 
         }
 
+        public SpecialProperty(SpecialProperty prop)
+        {
+            SpecialPropertyConstructor(prop.InternalID, prop.updateMethods, prop.Methods, prop.IsExtra, false);
+        }
 
         public SpecialProperty(ushort InternalID, UpdateMethods updateMethods, SpecialMethods Methods, bool IsExtra = false, bool ForMultiSelection = false) : base()
+        {
+            SpecialPropertyConstructor(InternalID, updateMethods, Methods, IsExtra, ForMultiSelection);
+        }
+
+        private void SpecialPropertyConstructor(ushort InternalID, UpdateMethods updateMethods, SpecialMethods Methods, bool IsExtra = false, bool ForMultiSelection = false)
         {
             this.InternalID = InternalID;
             this.IsExtra = IsExtra;
@@ -902,30 +911,28 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
             this.updateMethods = updateMethods;
             version = Methods.ReturnRe4Version();
             specialFileFormat = Methods.GetSpecialFileFormat();
-           
 
             switch (specialFileFormat)
             {
                 case SpecialFileFormat.AEV:
                     groupType = GroupType.AEV;
-                    Text_Name = Lang.GetAttributeText(aLang.MultiSelectSpecialAevDisplayName);
                     break;
                 case SpecialFileFormat.ITA:
                     groupType = GroupType.ITA;
-                    Text_Name = Lang.GetAttributeText(aLang.MultiSelectSpecialItaDisplayName);
                     break;
             }
 
-            Text_Description = "";
-
-            SetThis(this);
-
+            if (!ForMultiSelection)
+            {
+                SetThis(this);
+            }
+         
             SetIsExtra();
             SetFloatType(Globals.PropertyGridUseHexFloat);
             SetPropertyTypeEnable();
             SetPropertyCategory();
             SetPropertyId();
-            SetForMultiSelection(ForMultiSelection);
+            SetForMultiSelection(false); //a remover
 
             if (version == Re4Version.Classic)
             {
@@ -5289,23 +5296,6 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
             }
         }
         #endregion
-
-        #region class texts
-
-        [Browsable(false)]
-        public string Text_Name { get; }
-        [Browsable(false)]
-        public string Text_Value { get => Methods.GetNodeText(InternalID); }
-        [Browsable(false)]
-        public string Text_Description { get; }
-
-        public override string ToString()
-        {
-            return GetInternalID().ToString().PadLeft(5, '0');
-        }
-
-        #endregion
-
 
         #region Search Methods
 

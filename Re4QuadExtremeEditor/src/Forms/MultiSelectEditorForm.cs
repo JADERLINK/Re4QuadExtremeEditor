@@ -57,19 +57,22 @@ namespace Re4QuadExtremeEditor.src.Forms
 
             if (ESL.Length > 0)
             {
-                var prop = ESL[0].GetProperties();
+                EnemyProperty p = new EnemyProperty(ESL[0]);
+                var prop = p.GetProperties();
                 PopulateMultiSelectObjsList(prop, ClassSourceESL);
             }
 
             if (ETS.Length > 0)
             {
-                var prop = ETS[0].GetProperties();
+                EtcModelProperty p = new EtcModelProperty(ETS[0]);
+                var prop = p.GetProperties();
                 PopulateMultiSelectObjsList(prop, ClassSourceETS);
             }
 
             if (SPECIAL.Length > 0)
             {
-                var prop = SPECIAL[0].GetProperties();
+                SpecialProperty p = new SpecialProperty(SPECIAL[0]);
+                var prop = p.GetProperties();
                 PopulateMultiSelectObjsList(prop, ClassSourceSPECIAL);
             }
 

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
 [assembly: AssemblyTitle("Re4QuadExtremeEditor")]
-[assembly: AssemblyDescription("Re4 Quad Extreme Editor V1.0.1")]
+[assembly: AssemblyDescription("Re4 Quad Extreme Editor V1.0.2")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Re4QuadExtremeEditor")]
 [assembly: AssemblyProduct("Re4QuadExtremeEditor")]

@@ -215,7 +215,7 @@ namespace Re4QuadExtremeEditor.src
                         DataBase.ShaderBoundingBox.SetAltRotation(DataBase.NodeESL.MethodsForGL.GetOldRotation(ID));
                         DataBase.ShaderBoundingBox.SetVector3("mPosition", DataBase.NodeESL.MethodsForGL.GetPosition(ID));
                         DataBase.ShaderBoundingBox.SetVector4("mColor", mColor);
-                        if (DataBase.SelectedNodes.Contains(item))
+                        if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode()))
                         {
                             DataBase.ShaderBoundingBox.SetVector4("mColor", mColorSelected);
                         }
@@ -286,7 +286,7 @@ namespace Re4QuadExtremeEditor.src
                 DataBase.ShaderBoundingBox.SetAltRotation(DataBase.NodeETS.MethodsForGL.GetOldRotation(ID));
                 DataBase.ShaderBoundingBox.SetVector3("mPosition", DataBase.NodeETS.MethodsForGL.GetPosition(ID));
                 DataBase.ShaderBoundingBox.SetVector4("mColor", mColor);
-                if (DataBase.SelectedNodes.Contains(item))
+                if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode()))
                 {
                     DataBase.ShaderBoundingBox.SetVector4("mColor", mColorSelected);
                 }
@@ -376,7 +376,7 @@ namespace Re4QuadExtremeEditor.src
                     DataBase.ShaderBoundingBox.SetAltRotation(OldRotation.Identity);
                     DataBase.ShaderBoundingBox.SetVector3("mPosition", Vector3.Zero);
                     Vector4 TriggerZoneColor = Globals.GL_ColorItemTriggerZone;
-                    if (DataBase.SelectedNodes.Contains(item))
+                    if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode()))
                     {
                         TriggerZoneColor = Globals.GL_ColorItemTriggerZoneSelected;
                     }
@@ -401,7 +401,7 @@ namespace Re4QuadExtremeEditor.src
                 DataBase.ShaderBoundingBox.SetMatrix4("mRotation", MethodsForGL.GetItemRotation(ID));
                 DataBase.ShaderBoundingBox.SetAltRotation(MethodsForGL.GetItemAltRotation(ID));
                 DataBase.ShaderBoundingBox.SetVector3("mPosition", MethodsForGL.GetItemPosition(ID));
-                if (DataBase.SelectedNodes.Contains(item))
+                if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode()))
                 {
                     mColor = Globals.GL_ColorSelected;
                 }
@@ -450,7 +450,7 @@ namespace Re4QuadExtremeEditor.src
                     DataBase.ShaderBoundingBox.SetAltRotation(OldRotation.Identity);
                     DataBase.ShaderBoundingBox.SetVector3("mPosition", MethodsForGL.GetItemPosition(ID));
                     Vector4 RadiusColor = Globals.GL_ColorItemTrigggerRadius;
-                    if (DataBase.SelectedNodes.Contains(item))
+                    if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode()))
                     {
                         RadiusColor = Globals.GL_ColorItemTrigggerRadiusSelected;
                     }
@@ -469,7 +469,7 @@ namespace Re4QuadExtremeEditor.src
                     DataBase.ShaderBoundingBox.SetMatrix4("mRotation", Matrix4.Identity);
                     DataBase.ShaderBoundingBox.SetAltRotation(OldRotation.Identity);
                     DataBase.ShaderBoundingBox.SetVector3("mPosition", Vector3.Zero);
-                    if (DataBase.SelectedNodes.Contains(item)) { mColor = Globals.GL_ColorSelected; }
+                    if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode())) { mColor = Globals.GL_ColorSelected; }
                     DataBase.ShaderBoundingBox.SetVector4("mColor", mColor);
                     DataBase.ShaderBoundingBox.Start();
                     if (MethodsForGL.GetZoneCategory(ID) == SpecialZoneCategory.Category01)
@@ -523,7 +523,7 @@ namespace Re4QuadExtremeEditor.src
                         DataBase.ShaderBoundingBox.SetMatrix4("mRotation", MethodsForGL.GetWarpRotation(ID));
                         DataBase.ShaderBoundingBox.SetAltRotation(MethodsForGL.GetWarpAltRotation(ID));
                         DataBase.ShaderBoundingBox.SetVector3("mPosition", MethodsForGL.GetFirtPosition(ID));
-                        if (DataBase.SelectedNodes.Contains(item))
+                        if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode()))
                         {
                             mColor = Globals.GL_ColorSelected;
                         }
@@ -565,7 +565,7 @@ namespace Re4QuadExtremeEditor.src
                         DataBase.ShaderBoundingBox.SetMatrix4("mRotation", MethodsForGL.GetLocationAndLadderRotation(ID));
                         DataBase.ShaderBoundingBox.SetAltRotation(MethodsForGL.GetLocationAndLadderAltRotation(ID));
                         DataBase.ShaderBoundingBox.SetVector3("mPosition", MethodsForGL.GetFirtPosition(ID));
-                        if (DataBase.SelectedNodes.Contains(item))
+                        if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode()))
                         {
                             mColor = Globals.GL_ColorSelected;
                         }
@@ -607,7 +607,7 @@ namespace Re4QuadExtremeEditor.src
                         DataBase.ShaderBoundingBox.SetMatrix4("mRotation", MethodsForGL.GetLocationAndLadderRotation(ID));
                         DataBase.ShaderBoundingBox.SetAltRotation(MethodsForGL.GetLocationAndLadderAltRotation(ID));
                         DataBase.ShaderBoundingBox.SetVector3("mPosition", MethodsForGL.GetFirtPosition(ID));
-                        if (DataBase.SelectedNodes.Contains(item))
+                        if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode()))
                         {
                             mColor = Globals.GL_ColorSelected;
                         }
@@ -738,7 +738,7 @@ namespace Re4QuadExtremeEditor.src
                         DataBase.ShaderBoundingBox.SetMatrix4("mRotation", Matrix4.Identity);
                         DataBase.ShaderBoundingBox.SetAltRotation(OldRotation.Identity);
                         DataBase.ShaderBoundingBox.SetVector3("mPosition", MethodsForGL.GetAshleyPoint(ID));
-                        if (DataBase.SelectedNodes.Contains(item))
+                        if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode()))
                         {
                             mColor = Globals.GL_ColorSelected;
                         }
@@ -807,7 +807,7 @@ namespace Re4QuadExtremeEditor.src
             DataBase.ShaderBoundingBox.SetMatrix4("mRotation", MethodsForGL.GetGrappleGunFacingAngleRotation(ID));
             DataBase.ShaderBoundingBox.SetAltRotation(MethodsForGL.GetGrappleGunFacingAngleAltRotation(ID));
             DataBase.ShaderBoundingBox.SetVector3("mPosition", position);
-            if (DataBase.SelectedNodes.Contains(item))
+            if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode()))
             {
                 mColor = Globals.GL_ColorSelected;
             }
@@ -885,7 +885,7 @@ namespace Re4QuadExtremeEditor.src
                 DataBase.ShaderBoundingBox.SetMatrix4("mRotation", Matrix4.Identity);
                 DataBase.ShaderBoundingBox.SetAltRotation(OldRotation.Identity);
                 DataBase.ShaderBoundingBox.SetVector3("mPosition", Vector3.Zero);
-                if (DataBase.SelectedNodes.Contains(item)) { mColor = Globals.GL_ColorSelected; }
+                if (DataBase.SelectedNodes.ContainsKey(item.GetHashCode())) { mColor = Globals.GL_ColorSelected; }
                 mColor.W = 0.1f;
                 DataBase.ShaderBoundingBox.SetVector4("mColor", mColor);
                 DataBase.ShaderBoundingBox.Start();

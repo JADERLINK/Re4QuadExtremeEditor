@@ -15,7 +15,7 @@ namespace Re4QuadExtremeEditor.src.Class.TreeNodeObj
     /// <para>classe que representa os objetos, é usado no treeView;</para>
     /// <para>no Quad64 é usado no PropertyGrid, porem aqui dou outra finalidade;</para>
     /// </summary>
-    public class Object3D : TreeNode, NsMultiselectTreeView.IAltNode
+    public class Object3D : TreeNode, NsMultiselectTreeView.IAltNode, NsMultiselectTreeView.IFastNode, IEquatable<Object3D>
     {
         public Object3D() : base() {}
         public Object3D(string text) : base(text){ }
@@ -145,5 +145,22 @@ namespace Re4QuadExtremeEditor.src.Class.TreeNodeObj
             }
         }
 
+
+        public int HashCodeID { get { return (int)(((uint)Group * 0x10000) + ObjLineRef); } } 
+
+        public override int GetHashCode()
+        {
+            return HashCodeID;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return (obj is NsMultiselectTreeView.IFastNode fast && fast.HashCodeID == HashCodeID);
+        }
+
+        public bool Equals(Object3D other)
+        {
+            return other.HashCodeID == HashCodeID;
+        }
     }
 }

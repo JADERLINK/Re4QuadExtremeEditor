@@ -191,6 +191,7 @@
       <DependentUpon>MultiSelectEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Forms\MultiselectTree\IAltNode.cs" />
+    <Compile Include="src\Forms\MultiselectTree\IFastNode.cs" />
     <Compile Include="src\Forms\OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +298,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon4b.ico" />
+    <Content Include="mudancas.txt" />
+    <Content Include="planejamento2.txt" />
     <None Include="Resources\img\SquareRedLookVertical.png" />
     <None Include="Resources\img\SquareRedLookHorisontal.png" />
     <None Include="Resources\img\VerticalRed.png" />

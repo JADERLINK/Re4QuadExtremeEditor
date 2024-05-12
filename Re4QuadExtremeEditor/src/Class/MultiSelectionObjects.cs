@@ -28,6 +28,11 @@ namespace Re4QuadExtremeEditor.src.Class
             propertyColetions.Add(propertyColetion);
         }
 
+        public void AddRange(IEnumerable<GenericProperty> list) 
+        {
+            propertyColetions.AddRange(list);
+        }
+
         public override string ToString()
         {
             return Text;

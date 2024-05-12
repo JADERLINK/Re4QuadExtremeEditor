@@ -142,10 +142,6 @@ namespace Re4QuadExtremeEditor.src
 
         #endregion
 
-        // Speed multipliers
-        public static float camSpeedMultiplier = 1.0f;
-        public static float objSpeedMultiplier = 1.0f;
-
         // Render Options
         public static int FOV = 60; // field of view (in degrees)
 

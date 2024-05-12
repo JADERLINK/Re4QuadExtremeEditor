@@ -72,7 +72,7 @@ namespace Re4QuadExtremeEditor.src.Controls
             { newValue = 100f; }
 
             labelCamSpeedPercentage.Text = Lang.GetText(eLang.labelCamSpeedPercentage) +" "+ ((int)newValue).ToString().PadLeft(3) + "%";
-            Globals.camSpeedMultiplier = newValue / 100.0f;
+            camera.CamSpeedMultiplier = newValue / 100.0f;
         }
 
         private void comboBoxCameraMode_SelectedIndexChanged(object sender, EventArgs e)

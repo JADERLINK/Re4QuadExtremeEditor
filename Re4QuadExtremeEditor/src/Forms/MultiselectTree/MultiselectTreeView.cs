@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob/master/src/Forms/MultiselectTree/MultiselectTreeView.cs
 								// from original source https://www.codeproject.com/Articles/20581/Multiselect-Treeview-Implementation
@@ -28,8 +29,11 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 
 		public Color SelectedNodeBackColor { get => selectedNodeBackColor; set => selectedNodeBackColor = value; }
 
-		private List<TreeNode> m_SelectedNodes = null;		
-		public List<TreeNode> SelectedNodes
+		private System.Collections.Generic.Dictionary<int, TreeNode> m_SelectedNodes = null;
+		/// <summary>
+		/// hashCode, TreeNode
+		/// </summary>
+		public Dictionary<int, TreeNode> SelectedNodes
 		{
 			get
 			{
@@ -40,11 +44,16 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 				if (value != null)
 				{
 					m_SelectedNodes.Clear();
-					m_SelectedNodes.AddRange(value);
+                    //m_SelectedNodes.AddRange(value);
+                    foreach (var item in value)
+                    {
+						m_SelectedNodes.Add(item.Key, item.Value);
+					}
 					m_SelectedNode = null;
 					if (m_SelectedNodes.Count != 0)
                     {
-						m_SelectedNode = m_SelectedNodes[m_SelectedNodes.Count - 1];
+						//m_SelectedNode = m_SelectedNodes[m_SelectedNodes.Count - 1];
+						m_SelectedNode = m_SelectedNodes.Last().Value;
 					}
 					OnAfterSelect(new TreeViewEventArgs(m_SelectedNode));
 				}
@@ -83,7 +92,7 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 
 		public MultiselectTreeView()
 		{
-			m_SelectedNodes = new List<TreeNode>();
+			m_SelectedNodes = new Dictionary<int, TreeNode>();
 			base.SelectedNode = null;
 			DrawMode = TreeViewDrawMode.OwnerDrawText;
 		}
@@ -138,7 +147,7 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 					int rightBound = TextRenderer.MeasureText(altText, font).Width + node.Bounds.X; //node.Bounds.Right + 10; // Give a little extra room
 					if ( e.Location.X > leftBound && e.Location.X < rightBound )
 					{
-						if (ModifierKeys == Keys.None && (m_SelectedNodes.Contains(node)))
+						if (ModifierKeys == Keys.None && (m_SelectedNodes.ContainsValue(node)))
 						{
 							// Potential Drag Operation
 							// Let Mouse Up do select
@@ -170,7 +179,7 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 				TreeNode node = this.GetNodeAt( e.Location );
 				if( node != null )
 				{
-					if( ModifierKeys == Keys.None && m_SelectedNodes.Contains( node ) && m_SelectedNodes.Count > 1)
+					if( ModifierKeys == Keys.None && m_SelectedNodes.ContainsValue( node ) && m_SelectedNodes.Count > 1)
 					{
 						Font font = this.Font;
 						if (node.NodeFont != null)
@@ -213,7 +222,7 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 
 				if( node != null )
 				{
-					if( !m_SelectedNodes.Contains( node ) )
+					if( !m_SelectedNodes.ContainsValue( node ) )
 					{
 						SelectSingleNode( node );
 						ToggleNode( node, true );
@@ -251,11 +260,13 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 			{
 				base.OnAfterSelect( e );
 				base.SelectedNode = null;
+			
 			}
 			catch( Exception ex )
 			{
 				HandleException( ex );
 			}
+			
 			this.Refresh();
 		}
 
@@ -449,11 +460,13 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 		// descobri que a melhor solução é pegar o texto de outro lugar e deixar o "Text" em branco. 
         protected override void OnDrawNode(DrawTreeNodeEventArgs e)
         {
-            base.OnDrawNode(e);
-			if (e.Bounds.Y <= this.Height)
+			//Console.WriteLine(e.Node.Name + ' ' + e.Bounds.Y);
+			e.DrawDefault = false;
+			if (e.Bounds.Y <= this.Height && e.Bounds.Y >= 0)
 			{
-				e.DrawDefault = false;
-				if (m_SelectedNodes.Contains(e.Node) && e.Node.Parent != null)
+				//base.OnDrawNode(e);
+				//e.DrawDefault = false;
+				if (m_SelectedNodes.ContainsValue(e.Node) && e.Node.Parent != null)
 				{
 					Font font = this.Font;
 					if (e.Node.NodeFont != null)
@@ -510,7 +523,7 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 			ClearSelectedNodes();
 			if (node != null && node.Parent != null)
 			{
-				m_SelectedNodes.Add(node);
+				m_SelectedNodes.Add(node.GetHashCode(), node);
 				m_SelectedNode = node;
 				node.EnsureVisible();
 				OnAfterSelect(new TreeViewEventArgs(m_SelectedNode));
@@ -525,12 +538,13 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 		{
 			if (node != null && node.Parent != null)
 			{
-				if (m_SelectedNodes.Contains(node))
+				if (m_SelectedNodes.ContainsKey(node.GetHashCode()))
 				{
-					m_SelectedNodes.Remove(node);
+					m_SelectedNodes.Remove(node.GetHashCode());
 					if (m_SelectedNodes.Count >= 1)
 					{
-						m_SelectedNode = m_SelectedNodes[m_SelectedNodes.Count - 1];
+						//m_SelectedNode = m_SelectedNodes[m_SelectedNodes.Count - 1];
+						m_SelectedNode = m_SelectedNodes.Last().Value;
 						m_SelectedNode.EnsureVisible();
 					}
 					else
@@ -542,7 +556,7 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 				}
 				else
 				{
-					m_SelectedNodes.Add(node);
+					m_SelectedNodes.Add(node.GetHashCode(),node);
 					m_SelectedNode = node;
 					node.EnsureVisible();
 					OnAfterSelect(new TreeViewEventArgs(m_SelectedNode));
@@ -577,11 +591,13 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 				if( m_SelectedNode == null || ModifierKeys == Keys.Control )
 				{
 					// Ctrl+Click selects an unselected node, or unselects a selected node.
-					bool bIsSelected = m_SelectedNodes.Contains( node );
+					bool bIsSelected = m_SelectedNodes.ContainsValue( node );
 					ToggleNode( node, !bIsSelected );
 				}
 				else if( ModifierKeys == Keys.Shift )
 				{
+					this.BeginUpdate();
+
 					// Shift+Click selects nodes between the selected node and here.
 					TreeNode ndStart = m_SelectedNode;
 					TreeNode ndEnd = node;
@@ -690,6 +706,8 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 							}
 						}
 					}
+					this.EndUpdate();
+					this.Refresh();
 				}
 				else
 				{
@@ -733,15 +751,15 @@ namespace NsMultiselectTreeView // from https://github.com/DavidSM64/Quad64/blob
 			if( bSelectNode )
 			{
 				m_SelectedNode = node;
-				if( !m_SelectedNodes.Contains( node ) )
+				if( !m_SelectedNodes.ContainsKey( node.GetHashCode() ) )
 				{
-					m_SelectedNodes.Add( node );
+					m_SelectedNodes.Add( node.GetHashCode(), node );
 				}
 				
 			}
 			else
 			{
-				m_SelectedNodes.Remove( node );
+				m_SelectedNodes.Remove( node.GetHashCode() );
 			}
 			//this.Refresh(); // lag
 		}

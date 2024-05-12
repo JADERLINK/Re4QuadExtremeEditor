@@ -987,11 +987,11 @@ namespace Re4QuadExtremeEditor.src.Class.Files
                 //TZC1.X  +
                 content[0x1D] = 0x80;
                 content[0x1E] = 0x3B;
-                content[0x1F] = 0x44;
+                content[0x1F] = 0xC4;
                 //TZC1.Z  -
                 content[0x21] = 0x80;
                 content[0x22] = 0x3B;
-                content[0x23] = 0xC4;
+                content[0x23] = 0x44;
 
                 //TZC2.X  -
                 content[0x25] = 0x80;
@@ -1005,11 +1005,11 @@ namespace Re4QuadExtremeEditor.src.Class.Files
                 //TZC3.X  -
                 content[0x2D] = 0x80;
                 content[0x2E] = 0x3B;
-                content[0x2F] = 0xC4;
+                content[0x2F] = 0x44;
                 //TZC3.Z  +
                 content[0x31] = 0x80;
                 content[0x32] = 0x3B;
-                content[0x33] = 0x44;
+                content[0x33] = 0xC4;
 
                 //U_KG
                 content[0x34] = 0x03; // fixed 0x03

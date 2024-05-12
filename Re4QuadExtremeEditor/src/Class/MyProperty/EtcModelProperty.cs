@@ -17,7 +17,7 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
 {
     [DefaultProperty("InternalLineID")]
     [TypeConverter(typeof(GenericConverter))]
-    public class EtcModelProperty : GenericProperty, IInternalID, IDisplay
+    public class EtcModelProperty : GenericProperty, IInternalID
     {
         public event CustomDelegates.ActivateMethod UpdateSetFloatTypeEvent;
 
@@ -216,19 +216,30 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
             ChangePropertyIsBrowsable("Category_FloatTypeCategory", ForMultiSelection);
         }
 
+        public EtcModelProperty(EtcModelProperty prop)
+        {
+            EtcModelPropertyConstructor(prop.InternalID, prop.updateMethods, prop.Methods, false);
+        }
+
         public EtcModelProperty(ushort InternalID, UpdateMethods updateMethods, EtcModelMethods Methods, bool ForMultiSelection = false) : base()
+        {
+            EtcModelPropertyConstructor(InternalID, updateMethods, Methods, ForMultiSelection);
+        }
+
+        private void EtcModelPropertyConstructor(ushort InternalID, UpdateMethods updateMethods, EtcModelMethods Methods, bool ForMultiSelection = false)
         {
             this.InternalID = InternalID;
             this.updateMethods = updateMethods;
             this.Methods = Methods;
             version = Methods.ReturnRe4Version();
 
-            Text_Name = Lang.GetAttributeText(aLang.MultiSelectEtcmodelDisplayName);
-            Text_Description = "";
+            if (!ForMultiSelection)
+            {
+                SetThis(this);
+            }
 
-            SetThis(this);
             UpdatePropertyStatus();
-            SetForMultiSelection(ForMultiSelection);
+            SetForMultiSelection(false); // a remover
         }
 
         #region Category Ids
@@ -1033,22 +1044,6 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
                 UpdateSetFloatTypeEvent?.Invoke();
             }
         }
-        #endregion
-
-        #region class texts
-
-        [Browsable(false)]
-        public string Text_Name { get; }
-        [Browsable(false)]
-        public string Text_Value { get => Methods.GetNodeText(InternalID); }
-        [Browsable(false)]
-        public string Text_Description { get; }
-
-        public override string ToString()
-        {
-            return GetInternalID().ToString().PadLeft(5,'0');
-        }
-
         #endregion
 
 

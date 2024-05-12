@@ -145,7 +145,11 @@ namespace Re4QuadExtremeEditor
             //int finish = 0;
         }
 
-     
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         #region GlControl Events
 
         private Matrix4 ReturnNewProjMatrix() 
@@ -487,7 +491,7 @@ namespace Re4QuadExtremeEditor
         {
             if (MessageBox.Show(Lang.GetText(eLang.DeleteObjDialog), Lang.GetText(eLang.DeleteObjWarning), MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                foreach (Object3D item in treeViewObjs.SelectedNodes)
+                foreach (Object3D item in treeViewObjs.SelectedNodes.Values)
                 {
                     if (item.Group == GroupType.ETS)
                     {                    
@@ -508,7 +512,7 @@ namespace Re4QuadExtremeEditor
 
         private void toolStripMenuItemMoveUp_Click(object sender, EventArgs e)
         {
-            var ordernedSelectedNodes = treeViewObjs.SelectedNodes.OrderBy(n => n.Index);
+            var ordernedSelectedNodes = treeViewObjs.SelectedNodes.Values.OrderBy(n => n.Index);
             foreach (Object3D item in ordernedSelectedNodes)
             {
                 if (item.Group == GroupType.ETS || item.Group == GroupType.ITA || item.Group == GroupType.AEV)
@@ -526,7 +530,7 @@ namespace Re4QuadExtremeEditor
 
         private void toolStripMenuItemMoveDown_Click(object sender, EventArgs e)
         {
-            var invSelectedNodes = treeViewObjs.SelectedNodes.OrderByDescending(n => n.Index);
+            var invSelectedNodes = treeViewObjs.SelectedNodes.Values.OrderByDescending(n => n.Index);
             foreach (Object3D item in invSelectedNodes)
             {
                 if (item.Group == GroupType.ETS || item.Group == GroupType.ITA || item.Group == GroupType.AEV)
@@ -963,11 +967,11 @@ namespace Re4QuadExtremeEditor
             }
             else if (treeViewObjs.SelectedNodes.Count > 1)
             {
-                DataBase.LastSelectNode = treeViewObjs.SelectedNodes[treeViewObjs.SelectedNodes.Count - 1];
+                DataBase.LastSelectNode = treeViewObjs.SelectedNodes.Last().Value;
 
-                MultiSelectProperty p = new MultiSelectProperty(treeViewObjs.SelectedNodes, updateMethods);
+                MultiSelectProperty p = new MultiSelectProperty(updateMethods);
+                p.LoadContent(treeViewObjs.SelectedNodes.Values.ToList());
                 propertyGridObjs.SelectedObject = p;
-                //propertyGridObjs.ExpandAllGridItems(); // lag
             }
             else 
             {

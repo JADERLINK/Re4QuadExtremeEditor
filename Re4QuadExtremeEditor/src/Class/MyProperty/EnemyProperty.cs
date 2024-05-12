@@ -14,7 +14,7 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
 
     [DefaultProperty("Order")]
     [TypeConverter(typeof(GenericConverter))]
-    public class EnemyProperty : GenericProperty, IInternalID, IDisplay
+    public class EnemyProperty : GenericProperty, IInternalID
     {
         private ushort InternalID = ushort.MaxValue;
         private GroupType groupType = GroupType.ESL;
@@ -32,22 +32,32 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
             return groupType;
         }
 
+        public EnemyProperty(EnemyProperty prop) 
+        {
+            EnemyPropertyConstructor(prop.InternalID, prop.updateMethods, prop.Methods, false);
+        }
+
         public EnemyProperty(ushort InternalID, UpdateMethods updateMethods, EnemyMethods Methods, bool ForMultiSelection = false) : base()
+        {
+            EnemyPropertyConstructor(InternalID, updateMethods, Methods, ForMultiSelection);
+        }
+
+        private void EnemyPropertyConstructor(ushort InternalID, UpdateMethods updateMethods, EnemyMethods Methods, bool ForMultiSelection = false)
         {
             this.InternalID = InternalID;
             this.Methods = Methods;
             this.updateMethods = updateMethods;
 
-            Text_Name = Lang.GetAttributeText(aLang.MultiSelectEnemyDisplayName);
-            Text_Description = "";
-
-            SetThis(this);
-
-            // ForMultiSelection
-            ChangePropertyIsBrowsable("Category_OrderCategory", ForMultiSelection);
-            ChangePropertyIsBrowsable("Category_AssociatedSpecialEventCategory", ForMultiSelection);
-            ChangePropertyIsBrowsable("Category_LineArrayCategory", ForMultiSelection);
-            ChangePropertyIsBrowsable("Category_EnemyCategory", ForMultiSelection);
+            if (!ForMultiSelection)
+            {
+                SetThis(this);
+            }
+           
+            // ForMultiSelection // a remover
+            ChangePropertyIsBrowsable("Category_OrderCategory", false);
+            ChangePropertyIsBrowsable("Category_AssociatedSpecialEventCategory", false);
+            ChangePropertyIsBrowsable("Category_LineArrayCategory", false);
+            ChangePropertyIsBrowsable("Category_EnemyCategory", false);
         }
 
         #region Category Ids
@@ -702,23 +712,6 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
             {
                 Methods.SetByteFromPosition(InternalID, 0x1F, value);
             }
-        }
-
-        #endregion
-
-
-        #region class texts
-
-        [Browsable(false)]
-        public string Text_Name { get; }
-        [Browsable(false)]
-        public string Text_Value { get => Methods.GetNodeText(InternalID); }
-        [Browsable(false)]
-        public string Text_Description { get; }
-
-        public override string ToString()
-        {
-            return GetInternalID().ToString().PadLeft(5, '0');
         }
 
         #endregion

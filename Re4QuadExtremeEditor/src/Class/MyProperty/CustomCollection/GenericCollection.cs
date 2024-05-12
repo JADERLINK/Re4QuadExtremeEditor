@@ -28,6 +28,12 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty.CustomCollection // from htt
 			this.List.Add(obj);
 		}
 
+		public void AddRange(IEnumerable<object> collection) 
+		{
+			this.List.AddRange(collection);
+		}
+
+
 		/// <summary>
 		/// Removes an object from the collection
 		/// </summary>

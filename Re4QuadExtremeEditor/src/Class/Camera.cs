@@ -50,6 +50,9 @@ namespace Re4QuadExtremeEditor.src.Class
             new Vector2(90, 0)  // back
         };
 
+        private float camSpeedMultiplier = 1.0f;
+        public float CamSpeedMultiplier { get { return camSpeedMultiplier; } set { camSpeedMultiplier = value; } }
+
         private readonly Vector3 FixedUp = new Vector3(0, 1, 0);
 
         private CameraMode camMode = CameraMode.FLY;
@@ -257,32 +260,32 @@ namespace Re4QuadExtremeEditor.src.Class
 
         public void updateCameraToUp()
         {
-            pos += _up * Globals.camSpeedMultiplier; // Up
+            pos += _up * camSpeedMultiplier; // Up
         }
 
         public void updateCameraToDown() 
         {
-            pos -= _up * Globals.camSpeedMultiplier; // Down
+            pos -= _up * camSpeedMultiplier; // Down
         }
 
         public void updateCameraToRight()
         {
-            pos += _right * Globals.camSpeedMultiplier; // Right
+            pos += _right * camSpeedMultiplier; // Right
         }
 
         public void updateCameraToLeft()
         {
-            pos -= _right * Globals.camSpeedMultiplier; // Left
+            pos -= _right * camSpeedMultiplier; // Left
         }
 
         public void updateCameraToFront()
         {
-            pos += _front * Globals.camSpeedMultiplier; // Forward 
+            pos += _front * camSpeedMultiplier; // Forward 
         }
 
         public void updateCameraToBack()
         {
-            pos -= _front * Globals.camSpeedMultiplier; // Backwards
+            pos -= _front * camSpeedMultiplier; // Backwards
         }
 
         public void updateCameraOffsetMatrixWithMouse(bool isControlDown, int mouseX, int mouseY, bool invert = false)
@@ -354,7 +357,7 @@ namespace Re4QuadExtremeEditor.src.Class
                 MousePosY = -MousePosY;
             }
 
-            float sensitivity = 0.2f * extraSpeed * Globals.camSpeedMultiplier;
+            float sensitivity = 0.2f * extraSpeed * camSpeedMultiplier;
             pos = savedCamPos + (-_right * (MousePosX) * sensitivity) + (_up * (MousePosY) * sensitivity);
         }
 
@@ -375,8 +378,8 @@ namespace Re4QuadExtremeEditor.src.Class
                 MousePosX = -MousePosX;
                 MousePosY = -MousePosY;
             }
-            orbitTheta += MousePosX * 0.01f * Globals.camSpeedMultiplier;
-            orbitPhi -= MousePosY * 0.01f * Globals.camSpeedMultiplier;
+            orbitTheta += MousePosX * 0.01f * camSpeedMultiplier;
+            orbitPhi -= MousePosY * 0.01f * camSpeedMultiplier;
             orbitPhi = MathHelper.Clamp(orbitPhi, -1.57f, 1.57f);
             updateOrbitCamera();
         }
@@ -399,12 +402,12 @@ namespace Re4QuadExtremeEditor.src.Class
 
         private void updateCameraMatrixWithScrollWheel_FLY(int amt)
         {
-            pos += _front * amt * Globals.camSpeedMultiplier;
+            pos += _front * amt * camSpeedMultiplier;
         }
 
         private void updateCameraMatrixWithScrollWheel_ORBIT(int amt)
         {
-            orbitDistance -= amt * 0.2f * Globals.camSpeedMultiplier;
+            orbitDistance -= amt * 0.2f * camSpeedMultiplier;
             if (orbitDistance < 10.0f)
             { orbitDistance = 10.0f; }
             updateOrbitCamera();
